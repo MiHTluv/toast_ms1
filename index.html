@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./huhi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="toast">
+         <!-- success-->
+        <div class="toast toast--success">
+            <div class="toast__icon">
+                 <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="toast__body">
+                <h3 class="toast__title">Success</h3>
+                <p class="toast__msg">Alcohol is not good for you</p>
+            </div>
+            <div class="toast__close">
+                <i class="fas fa-times "></i>
+            </div>
+        </div>
+        <!-- warning -->
+        <div class="toast toast--warning">
+            <div class="toast__icon">
+                 <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="toast__body">
+                <h3 class="toast__title">Warning</h3>
+                <p class="toast__msg">Alcohol </p>
+            </div>
+            <div class="toast__close">
+                <i class="fas fa-times "></i>
+            </div>
+        </div>
+        <!-- error -->
+        <div class="toast toast--error">
+            <div class="toast__icon">
+                 <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="toast__body">
+                <h3 class="toast__title">Error</h3>
+                <p class="toast__msg">Alcohol is not good for you</p>
+            </div>
+            <div class="toast__close">
+                <i class="fas fa-times "></i>
+            </div>
+        </div> 
+    </div>
+    <div>
+        <div onclick="showSuccessToast();" class="box box--one">Show success</div>
+        <div onclick="showErrorToast();" class="box box--two">Show error toast</div>
+    </div>
+    <script>
+        //Toast function
+        function toast({
+            title='',
+            message= '',
+            type='info',
+            duration=3000
+        }){
+           const main=document.getElementById('toast');
+           if(main){
+              const toast=document.createElement('div');
+              
+              //Auto remove toast
+              const autoRemoveId = setTimeout(function(){
+                main.removeChild(toast)
+              }, duration + 1000);
+              //Remove toast when clicked
+              toast.onclick = function(e){
+                if(e.target.closest('.toast__close')){
+                    main.removeChild(toast);
+                    clearTimeout(autoRemoveId);
+                }
+              }
+
+              const icons={
+                  success:'fa-check-circle',
+                  warning:'fa-check-circle',
+                  error:'fa-check-circle',
+              };
+            const icon=icons[type];
+            const delay = (duration / 1000).toFixed(2);
+              toast.classList.add('toast',`toast--${type}`);
+              toast.style.animation= `outfadein linear .3s,inout linear ${delay}s forwards`;
+              toast.innerHTML=`
+              <div class="toast__icon">
+                 <i class="${icon}"></i>
+               </div>
+            <div class="toast__body">
+                <h3 class="toast__title">${title}</h3>
+                <p class="toast__msg">${message}</p>
+            </div>
+            <div class="toast__close">
+                <i class="fas fa-times "></i>
+            </div>
+              `;
+              main.appendChild(toast);
+              
+           }
+        }
+        
+        function showSuccessToast(){
+            toast({
+            title:'Thanh cong',
+            message:'chuc mung ban da dang ki thanh cong',
+            type:'success',
+            duration:5000
+            });
+        }
+
+        function showErrorToast(){
+            toast({
+            title:'That bai',
+            message:'Chuc ban may man lan sau',
+            type:'error',
+            duration:3000
+            });
+        }
+
+    </script>
+
+    <div>
+        <button class="box box--size--s box--one">GO TO NEXT APPROVAL</button>
+        <button class="box box--size--s box--two">OK</button>
+        <button class="box box--size--s box--three">TRY AGAIN</button>
+    </div>
+    <div>
+        <button class="box box--size--l box--one">GO TO NEXT APPROVAL</button>
+        <button class="box box--size--l box--disable box--two">OK</button>
+        <button class="box box--size--l box--three">TRY AGAIN</button>
+    </div>
+    <div>
+        <button class="box box--one">GO TO NEXT APPROVAL</button>
+        <button class="box box--two">OK</button>
+        <button class="box box--three">TRY AGAIN</button>
+    </div>
+    <div class="main">
+        <div class="head">
+            <ul class="he">
+                <li>Gioi thieu</li>
+                <li>Ket noi</li>
+                <li>Tai ung dung</li>
+            </ul>
+            <div class="he">
+                <li>Dang ki</li>
+                <li>Dang nhap</li>
+            </div>
+        </div>
+        <div class="conten1">
+            <form action="" class="con1">
+                <div class="row1">   
+                    <label class="col1" for="name">Name</label>
+                    <input type="text" class="co1">
+                </div>
+                <div class="row1">
+                    <label class="col1" for="password">Password</label>
+                    <input type="password" class="co1">
+                </div>
+            </form>
+        </div>
+        <div class="conten2">
+            <div class="con2 c21">
+                <h2>Silebar one</h2>
+                <p>I'm writing to you in reference to the job position advertised MyCV.vn which immediately appealed to me.Since I've been interested in your company for a long time, I would like to apply today as a Sample position in permanent employment.</p>
+            </div>
+            <div class="con2 c22">
+                <h2>Main column</h2>
+                <p>I'm writing to you in reference to the job position advertised MyCV.vn which immediately appealed to me.Since I've been interested in your company for a long time, I would like to apply today as a Sample position in permanent employment.</p><br>
+                <p>At the moment I'm working as a Sample position at Sample company.My most important tasks include familiarizing myself with new products, conducting sales talks and transferring orders.</p><br>
+                <p>Your job list sounds great! I hope that this will enable me to develop personal and professional development opportunities.I like your focus and image in this industry very well, so I see you as a very interesting employer.I have been following your development for a long time in the media and therefore believe that I also fit in well with the company</p><br>
+            </div>
+            <div class="con2 c23">
+                <h2>Silebar two</h2>
+                <p>I'm writing to you in reference to the job position advertised MyCV.vn which immediately appealed to me.Since I've been interested in your company for a long time, I would like to apply today as a Sample position in permanent employment.</p>
+            </div>
+        </div>
+        <div class="conten3">
+            <div class="colum3 co31">
+                <h2>Feature 1</h2>
+                <p>I'm writing to you in reference to the job position advertised MyCV.vn which immediately appealed to me.Since I've been interested in your company for a long time, I would like to apply today as a Sample position in permanent employment.</p>
+            </div>
+            <div class="colum3 co32">
+                <h2>Feature 2</h2>
+                <p>At the moment I'm working as a Sample position at Sample company.My most important tasks include familiarizing myself with new products, conducting sales talks and transferring orders.</p>
+            </div>
+            <div class="colum3 co33">
+                <h2>Feature 3</h2>
+                <p>Your job list sounds great! I hope that this will enable me to develop personal and professional development opportunities.I like your focus and image in this industry very well, so I see you as a very interesting employer.I have been following your development for a long time in the media and therefore believe that I also fit in well with the company.</p>
+            </div>
+        </div>
+        <div class="conten4">
+            <div class="row5 con41">1</div>
+            <div class="row5 con42">2</div>
+            <div class="row5 con43">3</div>
+            <div class="row5 con44">4</div>
+            <div class="row5 con45">5</div>
+        </div>
+        <div class="conten5">
+            <h3 class="centen-itm">
+                Center item
+            </h3>
+        </div>
+        <div class="conten6">
+            <div class="map-chart" style="--percent:10%">10%</div>
+            <div class="map-chart" style="--percent:20%">20%</div>
+            <div class="map-chart" style="--percent:40%">40%</div>
+            <div class="map-chart" style="--percent:90%">90%</div>
+            <div class="map-chart" style="--percent:80%">80%</div>
+            <div class="map-chart" style="--percent:40%">40%</div>
+            <div class="map-chart" style="--percent:10%">10%</div>
+            <div class="map-chart" style="--percent:20%">20%</div>
+            <div class="map-chart" style="--percent:69%">69%</div>
+            <div class="map-chart" style="--percent:96%">96%</div>
+            <div class="map-chart" style="--percent:60%">60%</div>
+            <div class="map-chart" style="--percent:88%">88%</div>
+        </div>
+        <div class="conten7">
+            <div class="colum7">
+                <p>I'm writing to you in reference to the job position advertised MyCV.vn which immediately appealed to me.Since I've been interested in your company for a long time, I would like to apply today as a Sample position in permanent employment.</p><br>
+                <p>At the moment I'm working as a Sample position at Sample company.My most important tasks include familiarizing myself with new products, conducting sales talks and transferring orders.</p><br>
+                <p>Your job list sounds great! I hope that this will enable me to develop personal and professional development opportunities.I like your focus and image in this industry very well, so I see you as a very interesting employer.I have been following your development for a long time in the media and therefore believe that I also fit in well with the company.</p><br>
+            </div>
+            <div class="colum7">
+                <div class="row7">
+                    <p>I'm writing to you in reference to the job position advertised MyCV.vn which immediately appealed to me.Since I've been interested in your company for a long time, I would like to apply today as a Sample position in permanent employment.</p>
+                </div>
+                <div class="row7">
+                    <p>At the moment I'm working as a Sample position at Sample company.My most important tasks include familiarizing myself with new products, conducting sales talks and transferring orders.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

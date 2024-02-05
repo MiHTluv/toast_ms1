@@ -1,0 +1,286 @@
+*{
+    box-sizing:border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica,Arial, sans-serif;
+}
+
+#toast{
+    z-index: 999999;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+.toast{
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 16px 0;
+    border-left:3px solid ;
+    margin:20px auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 8px rgba(0,0,0,0.08);
+    min-width: 400px;
+    max-width: 450px;
+    transition: all linear .3s;
+}
+@keyframes outfadein{
+    from{
+        opacity: 0;
+        transform: translateX(calc(100% + 20px));
+    }to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes inout{
+    to{
+        opacity: 0;
+    }
+}
+.toast--success{
+    border-color:#47d864 ;
+}
+.toast--success .toast__icon{
+    color: #47d864;
+}
+.toast--warning{
+    border-color: #2f86eb;
+}
+.toast--warning .toast__icon{
+    color: #2f86be;
+}
+.toast--error{
+    border-color: #ffc021;
+}
+.toast--error .toast__icon{
+    color: #ffc021;
+}
+
+.toast__icon{
+    font-size: 24px;
+}
+
+.toast__close,
+.toast__icon{
+    padding: 0 16px;
+}
+
+.fas{
+
+}
+
+.toast__body{
+    flex-grow: 1;
+}
+
+.toast__title{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.toast__msg{
+    font-size: 16px;
+    margin-top: 4px;
+    color: #888;
+    
+}
+
+.toast__close{
+   font-size: 20px;
+   color: rgba(0,0,0,0.3);
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.box{
+    display: inline-block;
+    background-color: #fff;
+    min-width: 120px;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 48px;
+    color: #fff;
+    max-width: 240px;
+    cursor: pointer;
+    transition: opacity 0.2s linear;
+    margin: 60px auto;
+}
+.box--disable{
+    opacity: 0.5 !important;
+    cursor: default;
+}
+.box--size--s{
+    padding: 8px 32px;
+}
+.box--size--l{
+   padding: 16px 56px;
+}
+.box:hover{
+    opacity: 0.8;
+}
+.box+.box{
+    margin-left: 16px;
+}
+.box--one{
+    background-color: #71be34;
+}
+.box--two{
+    background-color: #ffb702;
+}
+.box--three{
+    background-color: #ff623d;
+}
+.main{
+    background-color: #ccc;
+    /* min-height: 1000px; */
+}
+.head{
+    min-height: 42px;
+    background-color: #EF5122;
+    display: flex;
+    justify-content: space-between;
+}
+.he{
+    margin: auto 16px;
+}
+.he li{
+    color: #fff;
+    list-style-type: none;
+    display: inline;
+    padding: 0 8px;
+}
+.conten1{
+    height: 96px;
+    max-width: 720px;
+    margin: 32px auto;
+    padding: 16px;
+    background-color: #fff;
+    
+}
+.row1{
+    display: flex;
+    padding: 8px 0;
+}
+.col1{
+    min-width: 90px;
+}
+.co1{
+    flex: 1;
+}
+.conten2{
+    min-height: 36px;
+    background-color: #fff;
+    display: flex;
+}
+.con2{
+    margin: 16px 8px;
+}
+.con2.c21{
+    flex: 1;
+}
+.con2.c22{
+    flex: 2;
+}
+.con2.c23{
+    flex: 1;
+}
+.conten3{
+    margin: 32px 16px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction:column
+}
+@media(min-width:740px){
+    .conten3{
+        flex-direction: row;
+    }
+}
+.colum3{
+    flex-basis: 30%;
+    padding: 12px 16px;
+    margin: 4px 0;
+}
+.co31{
+    background-color:rgb(192, 227, 222); ;
+}
+.co32{
+    background-color:rgb(227, 200, 192) ;
+}
+.co33{
+   background-color: rgb(226, 192, 227) ;
+}
+.conten4{
+   display: flex;
+   justify-content: space-between;
+   margin: 32px;
+}
+.row5{
+    width: 148px;
+    height: 90px;
+    background-color: #EF5122;
+    color: #fff;
+    font-size: 32px;
+    margin: 0 16px;
+    text-align: center;
+    line-height: 90px;
+}
+.conten5{
+    width: 640px;
+    height: 320px;
+    background-color: aqua;
+    display: flex;
+    margin: 32px auto;
+}
+.centen-itm{
+    color: #fff;
+    font-size: 32px;
+    margin: auto; 
+}
+.conten6{
+    height: 320px;
+    background-color: #fff;
+    margin: 32px 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+.map-chart{
+    height: var(--percent);
+    width: 64px;
+    background-color: #EF5122;
+    text-align: center;
+    animation: ahi linear 0.5s;
+}
+@keyframes ahi{
+    from{
+        opacity: 0.5;
+        height: 50%;
+    }to{
+        opacity: 1;
+        height: var(--percent);
+    }
+}
+.conten7{
+    display: flex;
+    margin: 32px auto;
+    max-width: 740px;
+    min-height: 320px;
+    flex-direction: row-reverse;
+}
+.colum7{
+    background-color: #fff;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+.row7{
+   padding: 0 0 16px;
+   background-color: aqua;
+   flex: 1;
+}
